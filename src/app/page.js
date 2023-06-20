@@ -41,7 +41,7 @@ export default async function Home() {
               </h2>
               {item.images.map((image) => {
                 return (
-                  <div className="relative w-100 h-64 mb-6">
+                  <div key={image.id} className="relative w-100 h-64 mb-6">
                     <Image
                       className="object-cover"
                       fill
