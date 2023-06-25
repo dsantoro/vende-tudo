@@ -26,7 +26,7 @@ export default async function Home() {
   const { allProducts } = data;
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto container px-4">
       <h1 className="text-4xl my-4">Lista de items a venda</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {allProducts.map((item) => {
