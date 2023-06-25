@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { request } from "../lib/datocms";
 
@@ -41,9 +42,12 @@ export default async function Home() {
               </h2>
               {item.images.map((image) => {
                 return (
-                  <div key={image.id} className="relative w-100 h-64 mb-6">
+                  <div
+                    key={image.id}
+                    className="relative w-100 h-64 mb-6 bg-zinc-200 rounded"
+                  >
                     <Image
-                      className="object-cover"
+                      className="object-contain"
                       fill
                       key={image.id}
                       src={image.url}
@@ -52,19 +56,26 @@ export default async function Home() {
                   </div>
                 );
               })}
+              <div className="h-24 overflow-y-auto mb-4">
+                <ReactMarkdown>{item.description}</ReactMarkdown>
+              </div>
               <p className="text-2xl font-semibold mb-4 text-right">
                 Valor: {item.price} €
               </p>
 
               <div className="flex flex-col gap-4">
-                <a
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreffer"
-                >
-                  Ver na loja
-                </a>
+                {item.link ? (
+                  <a
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreffer"
+                  >
+                    Ver na loja
+                  </a>
+                ) : (
+                  "Sem link"
+                )}
 
                 <a
                   className={`text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ${
