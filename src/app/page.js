@@ -51,7 +51,7 @@ export default async function Home() {
                       fill
                       key={image.id}
                       src={image.url}
-                      alt={image.title || "aa"}
+                      alt={image.title || "Alternative Description"}
                     />
                   </div>
                 );
