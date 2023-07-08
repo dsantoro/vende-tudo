@@ -3,7 +3,7 @@ import Image from "next/image";
 import { request } from "../lib/datocms";
 
 const PRODUCTS_QUERY = `query ProductsPage {
-  allProducts {
+  allProducts (first: 100) {
     id
     title
     images {
